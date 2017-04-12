@@ -1,0 +1,259 @@
+<style>
+
+* {
+    font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial, sans-serif;
+    background-color: black;
+    color: darkgray;
+  }
+
+  .interact-img {
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 40%;
+    width: 100px;
+    height: 80px;
+    background-color: #202326;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #37bafb;
+    background-color: #202326;
+  }
+
+  .intro-p {
+    margin: auto;
+    max-width: 450px;
+    text-align: center;
+    background-color: #202326;
+  }
+
+  .head-div {
+    margin: auto;
+    border: 3px solid #202326;
+    width: 456px;
+    background-color: #202326;
+  }
+  
+  form {
+    max-width: 420px;
+    margin: 0 auto 50px;
+    padding: 15px;
+    border: 6px solid #202326;
+  }
+  
+  .checkbox-artwork {
+    color: red;
+  }
+
+  input, textarea {
+    border: 3px solid #202326;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+
+    +box-sizing
+      border-box
+  }
+
+  input:hover, textarea:hover {
+    border:3px solid #37bafb;
+  }
+  
+  textarea {
+    height: 200px;
+  }
+  
+  .submit-wrap {
+    text-align: right;
+  }
+
+  [type="submit"] {
+    background: #37bafb;
+    color: black;
+    border: 3px solid #202326;
+    font-size: 18px;
+    text-transform: uppercase;
+    width: 33%;
+  }
+
+
+  .contact-info-group label {
+    //width: 50%;
+    //padding-right: 10px;
+    //float: left;
+
+    +box-sizing
+      border-box
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  form label span {
+    display: block;
+    font-size: 1.2em;
+  }
+
+  
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #202326;
+  background: #000000;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(55, 186, 251);
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em; left: .3em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #37bafb;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted #37bafb;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 2px solid #37bafb!important;
+}put[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
+
+</style>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    
+    <div class="head-div">
+      <img class="interact-img" src="https://luxonvideoinc-my.sharepoint.com/personal/daniel_estrada_luxonvideo_com/_layouts/15/guestaccess.aspx?docid=121563953617d4a5790f28e7a018303d9&authkey=Ab-NPuHa2gAGyOd55f7h_b0">
+
+      <h2>
+        Schedule an Arlenco Facility
+      </h2>
+
+      <p class="intro-p">Fill out your information to request an Arlenco facility for use. This could include trainings, product introductions, customer meetings, etc. Our facilities are for your use!</p>
+      <br/>
+    </div>
+    <form action="https://formspree.io/xzzlayjx" method="POST"> 
+      <input type="hidden" name="_format" value="plain" />
+      <input type="text" name="_gotcha" style="display:none">
+
+      <div class="contact-info-group">
+        
+        <label><span>Company</span>
+        <input type="company" name="company"></label>
+        
+        <label><span>The TITLE of your event</span>
+        <input type="title" name="titleofevent"></label>
+        <br>
+        
+        <label><span>Do you need Arlenco to create Artwork for your Event?</span><br></label>
+        <p>
+          <input type="checkbox" id="test1" name="createaflyerforme" />
+          <label for="test1">Please Create a flyer for me</label>
+        </p>
+        <p>
+          <input type="checkbox" id="test2"  name="illsubmitmyownflyer"  />
+          <label for="test2">I'll submit my own flyer</label>
+        </p>
+        <p>
+          <input type="checkbox" id="test3"  name="willfoodbeprovided" />
+          <label for="test3">Will any FOOD be provided?</label>
+        </p><br>
+
+        <label><span>Name</span>
+        <input type="name" name="name"></label>
+
+        <label><span>Email</span>
+        <input type="email" name="email"></label>
+        
+        <label><span>Which branch would you like to have a training at?</span>
+          <input list="browsers" type="branch" name="branch">
+          <datalist id="browsers">
+            <option value="Albuquerque">
+            <option value="Boise">
+            <option value="Portland">
+            <option value="Salt Lake City">
+            <option value="Spokane">
+          </datalist>
+        </label>
+
+
+        <label><span>Date</span>
+          <input type="date" name="date">
+        </label>
+
+        <label><span>From (Time)</span>
+        <input type="time" name="training"></label>
+        
+        <label><span>To (Time)</span>
+        <input type="time" name="training"></label>
+        
+        <label><span>Any Event Details</span>
+        <textarea type="message" name="eventdetails"></textarea></label>
+
+        </div>
+        <div class="submit-wrap">
+          <input type="submit"></button>
+        </div>
+
+    </form>
+
+  </body>
+</html>
